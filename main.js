@@ -6,6 +6,9 @@ const createWindow = () => {
     width: 1280,
     height: 720,
     autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
   win.loadFile('index.html')
 }
