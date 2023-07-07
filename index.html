@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>b0ltv0rt3x launcher V0.1.0</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <script>
+    const { app } = require('electron');
+    let username = "default";
+    function setName() {
+      console.log(username);
+      username = document.getElementById('username-field').value
+      console.log(username);
+    }
+  </script>
+  <script src="loader.js"></script>
+  <body>
+    <button onclick="launchFabric">
+      1.20.1 Fabric
+    </button>
+    <button onclick="launch">
+      1.20.1
+    </button>
+    <button onclick="launch1165">
+      1.16.5
+    </button>
+    <button onclick="launch1164(username)">
+      1.16.4
+    </button>
+    <div id="center1">
+      <input type="text" id="username-field"></input>
+      <span for="username-field"> Offline Name</span>
+      <button onclick="setName()">
+        Set username
+      </button>
+    </div>
+  </body>
+</html>
