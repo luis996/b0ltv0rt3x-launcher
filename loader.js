@@ -1,19 +1,7 @@
 const { app, BrowserWindow, dialog } = require('electron')
-const path = require('path')
-const isDev = require('electron-is-dev')
-require('@electron/remote/main').initialize()
-const { ipcMain } = require('electron/main');
-const {download} = require('electron-dl');
 const { Client, Authenticator } = require('minecraft-launcher-core');
-let fs = require('fs');
-const { electron } = require('process');
-const decompress = require('decompress');
-const { log, error } = require('console');
-//Client imports
-const userDataPath = app.getPath('userData');
-const installRoot = userDataPath;
-const gamePath = `${userDataPath}/versions/1.20.1/1.20.1`
-const installPath = `${userDataPath}/versions/1.20.1/`
+const installRoot = './minecraft';
+
 
 const launch1164 = (username) => {
     const launcher = new Client();
