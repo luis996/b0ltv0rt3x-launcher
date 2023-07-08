@@ -2,27 +2,32 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>b0ltv0rt3x launcher V0.1.0</title>
+    <title>b0ltv0rt3x launcher V0.1.2</title>
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <script>
     let username = "default";
+    let usernamefirst
+    let usernamelast
     function setName() {
+      usernamefirst = username
       username = document.getElementById('username-field').value
+      usernamelast = username
+      console.log('[DEBUG] '+ usernamefirst + ' => ' + usernamelast)
     }
   </script>
   <body>
     <script defer src="loader.js"></script>
-    <button onclick="launchFabric">
+    <button onclick="launchCustom(username, 'Fabric1.20.1')">
       1.20.1 Fabric
     </button>
-    <button onclick="launch">
+    <button onclick="launchGeneric(username, '1.20.1')">
       1.20.1
     </button>
-    <button onclick="launch1165">
+    <button onclick="launchGeneric(username, '1.16.5')">
       1.16.5
     </button>
-    <button onclick="launch1164(username)">
+    <button onclick="launchGeneric(username, '1.16.4')">
       1.16.4
     </button>
     <div id="center1">

@@ -3,10 +3,11 @@ const path = require('path')
 let fs = require('fs')
 const { Client, Authenticator } = require('minecraft-launcher-core');
 const { log, error } = require('console');
-const installRoot = path.join(__dirname, 'minecraft')
+const installRoot = path.join(process.env.appdata, '.minecraft')
+console.log('[DEBUG] InstallRoot Detected:');
 console.log(installRoot);
 
-const launch1164 = (username) => {
+const launchGeneric = (username, version) => {
     const launcher = new Client();
     let opts = {
       // For production launchers, I recommend not passing 
@@ -17,7 +18,7 @@ const launch1164 = (username) => {
       authorization: Authenticator.getAuth(username, ""),
       root: installRoot,
       version: {
-          number: "1.16.4",
+          number: `${version}`,
           type: "release"
       },
       memory: {
@@ -29,3 +30,7 @@ const launch1164 = (username) => {
     launcher.on('debug', (e) => console.log(e));
     launcher.on('data', (e) => console.log(e));
   }
+
+const launchCustom = (username, custom) => {
+  console.log('[DEBUG] Could not ping server, VORTEX-FILES');
+}
