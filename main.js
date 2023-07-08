@@ -1,6 +1,11 @@
 if (require('electron-squirrel-startup')) return;
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
+const { download } = require('electron-dl')
+
+ipcMain.on('download', async (event, installRoot, versions, custom) => {
+  await download(BrowserWindow.getFocusedWindow(), 'https://thevortexfiles.luiswilfredowil.repl.co/' + custom + '.json', {directory: path.join(installRoot, versions, custom)})
+})
 
 // this should be placed at top of main.js to handle setup events quickly
 if (handleSquirrelEvent()) {
@@ -70,17 +75,19 @@ function handleSquirrelEvent() {
   }
 };
 const createWindow = () => {
-  const win = new BrowserWindow({
+    const win = new BrowserWindow({
     width: 1280,
     height: 720,
     autoHideMenuBar: true,
     webPreferences: {
+      enableRemoteModule: true,
       nodeIntegration: true,
       contextIsolation: false
     }
   })
   win.loadFile('index.html')
 }
+
 
 app.whenReady().then(() => {
   createWindow()

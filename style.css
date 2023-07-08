@@ -1,6 +1,15 @@
 #center1 {
     text-align: center;
 }
+#center2 {
+    text-align: center;
+}
+#launchButton {
+    text-align: center;
+}
+#customverbtn {
+    text-align: center;
+}
 body {
     background:black;
     color: white;
