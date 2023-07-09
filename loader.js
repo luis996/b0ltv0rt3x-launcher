@@ -65,3 +65,6 @@ const launchCustomFabric = async (username, custom, version) => {
     launcher.on('data', (e) => console.log(e));
   }
 }
+const launchCustomForge = () => {
+  // do nothing
+}

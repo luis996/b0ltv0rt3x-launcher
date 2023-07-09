@@ -7,7 +7,13 @@
 #launchButton {
     text-align: center;
 }
-#customverbtn {
+#fabricbtn {
+    text-align: center;
+}
+#forgebtn {
+    text-align: center;
+}
+#gobackbtn {
     text-align: center;
 }
 body {

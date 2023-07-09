@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>b0ltv0rt3x launcher V1.2.1</title>
+    <title>b0ltv0rt3x launcher V1.3.1</title>
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <script>
@@ -24,14 +24,16 @@
       <span for="username-field"> Offline Name</span>
     </div>
     <div id="center2">
-      <input type="text" id="fabric-field"></input>
-      <span for="fabric-field"> Fabric Version</span>
+      <input type="text" id="forge-field"></input>
+      <span for="forge-field"> Forge Version</span>
     </div>
     <div id="launchButton">
-      <button onclick="launchCustomFabric(setName(), 'Fabric' + document.getElementById('fabric-field').value, document.getElementById('fabric-field').value)">
+      <button onclick="launchCustomForge(setName(), 'Forge' + document.getElementById('forge-field').value, document.getElementById('forge-field').value)">
         Launch
       </button>
     </div>
-    <a href="./index.html" class="customverbtn">Go back</a>
+    <div id="gobackbtn">
+      <a href="./index.html">Go back</a>
+    </div>
   </body>
 </html>
