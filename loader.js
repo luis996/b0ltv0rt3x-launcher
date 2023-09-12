@@ -1,5 +1,4 @@
 const { app, BrowserWindow, dialog, ipcRenderer } = require('electron')
-const zlib = require('zlib'); 
 const path = require('path')
 const fs = require('fs')
 const { Client, Authenticator } = require('minecraft-launcher-core');
@@ -29,18 +28,18 @@ const launchGeneric = (username, version) => {
       return;
     }
     let java = "8"
-    if (version === "1.17.1") {let java = "16"}
-    if (version === "1.17") {let java = "16"}
-    if (version === "1.18.1") {let java = "17"}
-    if (version === "1.18.2") {let java = "17"}
-    if (version === "1.18") {let java = "17"}
-    if (version === "1.19") {let java = "17"}
-    if (version === "1.19.1") {let java = "17"}
-    if (version === "1.19.2") {let java = "17"}
-    if (version === "1.19.3") {let java = "17"}
-    if (version === "1.19.4") {let java = "17"}
-    if (version === "1.20") {let java = "17"}
-    if (version === "1.20.1") {let java = "17"}
+    if (version === "1.17.1") {java = "16"}
+    if (version === "1.17") {java = "16"}
+    if (version === "1.18.1") {java = "17"}
+    if (version === "1.18.2") {java = "17"}
+    if (version === "1.18") {java = "17"}
+    if (version === "1.19") {java = "17"}
+    if (version === "1.19.1") {java = "17"}
+    if (version === "1.19.2") {java = "17"}
+    if (version === "1.19.3") {java = "17"}
+    if (version === "1.19.4") {java = "17"}
+    if (version === "1.20") {java = "17"}
+    if (version === "1.20.1") {java = "17"}
     const launcher = new Client();
     let opts = {
       // For production launchers, I recommend not passing 
