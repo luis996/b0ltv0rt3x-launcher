@@ -1,6 +1,6 @@
 {
   "name": "b0ltv0rt3xlauncher",
-  "version": "1.3.3",
+  "version": "2.0.0-dev",
   "description": "A simple minecraft launcher, open-source and completely safe.",
   "main": "main.js",
   "scripts": {

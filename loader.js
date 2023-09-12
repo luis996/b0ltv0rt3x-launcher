@@ -27,6 +27,7 @@ const launchGeneric = (username, version) => {
       ipcRenderer.send('download', 'https://drive.usercontent.google.com/download?id=1KvEnKxk2F-dacJjJDevGqZ45lmkvSHsh&export=download&authuser=1&confirm=t&uuid=e5f1dd07-79f2-47ba-b86c-99182edba5aa&at=APZUnTWnj2A1cQbjsvVrsCWOj6DB:1694529240677', installRoot, '', '')
       return;
     }
+    // Set java default to 8, then check if there is versions that need another versions of java, then change it.
     let java = "8"
     if (version === "1.17.1") {java = "16"}
     if (version === "1.17") {java = "16"}
