@@ -10,16 +10,23 @@ console.log('[DEBUG] InstallRoot Detected:');
 console.log(installRoot);
 
 const launchGeneric = (username, version) => {
-    if (!(fs.existsSync(installRoot + '/javas.rar'))) {
-      console.log('[DEBUG] Java folder not found, trying to download then restarting in 90 seconds.')
+    if (!(fs.existsSync(installRoot + '/java8/'))) {
+      console.log('[DEBUG] Java folder not found, we are downloading javas.zip into ' + installRoot + '.')
+      console.log('[DEBUG] Extract the java8, java16, and java17 as folders, like ' + installRoot + '/java8/ and etc.');
       ipcRenderer.send('download', 'https://drive.usercontent.google.com/download?id=1KvEnKxk2F-dacJjJDevGqZ45lmkvSHsh&export=download&authuser=1&confirm=t&uuid=e5f1dd07-79f2-47ba-b86c-99182edba5aa&at=APZUnTWnj2A1cQbjsvVrsCWOj6DB:1694529240677', installRoot, '', '')
-      setTimeout(launchGeneric, 90000, username, version)
       return;
     }
-    if (!(fs.existsSync(installRoot + '/java8/'))) {
-      const inputFile = fs.createReadStream(installRoot + '/javas.rar');
-      const outputFile = fs.createWriteStream(installRoot + '/*');
-      inputFile.pipe(zlib.createUnzip()).pipe(outputFile);    
+    if (!(fs.existsSync(installRoot + '/java16/'))) {
+      console.log('[DEBUG] Java folder not found, we are downloading javas.zip into ' + installRoot + '.')
+      console.log('[DEBUG] Extract the java8, java16, and java17 as folders, like ' + installRoot + '/java8/ and etc.');
+      ipcRenderer.send('download', 'https://drive.usercontent.google.com/download?id=1KvEnKxk2F-dacJjJDevGqZ45lmkvSHsh&export=download&authuser=1&confirm=t&uuid=e5f1dd07-79f2-47ba-b86c-99182edba5aa&at=APZUnTWnj2A1cQbjsvVrsCWOj6DB:1694529240677', installRoot, '', '')
+      return;
+    }
+    if (!(fs.existsSync(installRoot + '/java17/'))) {
+      console.log('[DEBUG] Java folder not found, we are downloading javas.zip into ' + installRoot + '.')
+      console.log('[DEBUG] Extract the java8, java16, and java17 as folders, like ' + installRoot + '/java8/ and etc.');
+      ipcRenderer.send('download', 'https://drive.usercontent.google.com/download?id=1KvEnKxk2F-dacJjJDevGqZ45lmkvSHsh&export=download&authuser=1&confirm=t&uuid=e5f1dd07-79f2-47ba-b86c-99182edba5aa&at=APZUnTWnj2A1cQbjsvVrsCWOj6DB:1694529240677', installRoot, '', '')
+      return;
     }
     let java = "8"
     if (version === "1.17.1") {let java = "16"}
@@ -40,7 +47,7 @@ const launchGeneric = (username, version) => {
       // the getAuth function through the authorization field and instead
       // handling authentication outside before you initialize
       // MCLC so you can handle auth based errors and validation!
-      javaPath: `${installRoot}/${java}/bin/java.exe`,
+      javaPath: `${installRoot}/java${java}/bin/java.exe`,
       authorization: Authenticator.getAuth(username, ""),
       root: installRoot,
       version: {
