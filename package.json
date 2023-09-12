@@ -24,6 +24,7 @@
     "@electron/remote": "^2.0.10",
     "electron-dl": "^3.5.0",
     "electron-squirrel-startup": "^1.0.0",
-    "minecraft-launcher-core": "^3.17.1"
+    "minecraft-launcher-core": "^3.17.1",
+    "zlib": "^1.0.5"
   }
 }

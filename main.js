@@ -3,8 +3,8 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const { download } = require('electron-dl')
 
-ipcMain.on('download', async (event, installRoute, custom, filetype) => {
-  await download(BrowserWindow.getFocusedWindow(), 'https://thevortexfiles.luiswilfredowil.repl.co/' + custom + filetype, {directory: installRoute})
+ipcMain.on('download', async (event, uri, installRoute, custom, filetype) => {
+  await download(BrowserWindow.getFocusedWindow(), uri + custom + filetype, {directory: installRoute})
 })
 
 // this should be placed at top of main.js to handle setup events quickly
