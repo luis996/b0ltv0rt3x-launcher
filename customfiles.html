@@ -9,18 +9,12 @@
     let username = "default";
     let usernamefirst
     let usernamelast
-    let versionNumber = '1.20.1';
     function setName() {
       usernamefirst = username
       username = document.getElementById('username-field').value
       usernamelast = username
       console.log('[DEBUG] '+ usernamefirst + ' => ' + usernamelast)
       return username;
-    }
-    function setVersion() {
-      versionNumber = document.getElementById('version-field').value
-      console.log('[DEBUG] Version: ' + versionNumber)
-      return versionNumber;
     }
   </script>
   <body>
@@ -30,25 +24,21 @@
       <span for="username-field"> Offline Name</span>
     </div>
     <div id="center2">
-      <input type="text" id="version-field"></input>
-      <span for="version-field"> Version number</span>
+      <input type="text" id="custom-field"></input>
+      <span for="custom-field"> Custom /versions/ folder name</span>
     </div>
+    <div id="center3">
+        <input type="text" id="version-field"></input>
+        <span for="version-field"> In which version is based</span>
+      </div>
     <div id="launchButton">
-      <button onclick="launchGeneric(setName(), setVersion())">
-        Launch minecraft
+      <button onclick="launchCustom(setName(), document.getElementById('custom-field').value, document.getElementById('version-field').value)">
+        Launch
       </button>
     </div>
-    <div id="fabricbtn">
-      <a href="./fabricfiles.html">Fabric versions >></a>
+    <div id="gobackbtn">
+      <a href="./index.html">Go back</a>
     </div>
-    <div id="forgebtn">
-      <a href="./forgefiles.html">Forge versions >></a>
-    </div>
-    <div id="quiltbtn">
-      <a href="./quiltfiles.html">Quilt versions >></a>
-    </div>
-    <div id="quiltbtn">
-      <a href="./customfiles.html">Quilt versions >></a>
-    </div>
+    You may get an error then the console log doesn't display anything else, just wait a while then re-launch.
   </body>
 </html>
