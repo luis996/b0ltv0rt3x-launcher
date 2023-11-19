@@ -2,17 +2,58 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>b0ltv0rt3x launcher V2.0.1</title>
+    <title>b0ltv0rt3x launcher V2.1.0</title>
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <script>
     let username = "default";
     let usernamefirst
     let usernamelast
+    let INJECT
+    let colordata
     let versionNumber = '1.20.1';
     function setName() {
       usernamefirst = username
       username = document.getElementById('username-field').value
+      usernamelast = username
+      console.log('[DEBUG] '+ usernamefirst + ' => ' + usernamelast)
+      console.log('[COLORMOD] APPLYING CHANGES TO USERNAME TO ' + document.getElementById('color-field').value)
+      colordata = '' + document.getElementById('color-field').value
+      if (colordata.toLowerCase() === 'black') {
+        INJECT = '§0'
+      } else if (colordata.toLowerCase() === 'blue') {
+        INJECT = '§1'
+      } else if (colordata.toLowerCase() === 'green') {
+        INJECT = '§2'
+      } else if (colordata.toLowerCase() === 'aqua') {
+        INJECT = '§3'
+      } else if (colordata.toLowerCase() === 'red') {
+        INJECT = '§4'
+      } else if (colordata.toLowerCase() === 'purple') {
+        INJECT = '§5'
+      } else if (colordata.toLowerCase() === 'gold') {
+        INJECT = '§6'
+      } else if (colordata.toLowerCase() === 'grey') {
+        INJECT = '§7'
+      } else if (colordata.toLowerCase() === 'dark grey') {
+        INJECT = '§8'
+      } else if (colordata.toLowerCase() === 'violet') {
+        INJECT = '§9'
+      } else if (colordata.toLowerCase() === 'light green') {
+        INJECT = '§a'
+      } else if (colordata.toLowerCase() === 'cyan') {
+        INJECT = '§b'
+      } else if (colordata.toLowerCase() === 'light red') {
+        INJECT = '§c'
+      } else if (colordata.toLowerCase() === 'pink') {
+        INJECT = '§d'
+      } else if (colordata.toLowerCase() === 'yellow') {
+        INJECT = '§e'
+      } else {
+        INJECT = ''
+      }
+      usernamefirst = username
+      username = INJECT + username
       usernamelast = username
       console.log('[DEBUG] '+ usernamefirst + ' => ' + usernamelast)
       return username;
@@ -33,6 +74,10 @@
       <input type="text" id="version-field"></input>
       <span for="version-field"> Version number</span>
     </div>
+    <div style="text-align: center;">
+      <input type="text" id="color-field"></input>
+      <span for="color-field"> Color of the name</span>
+    </div>
     <div id="launchButton">
       <button onclick="launchGeneric(setName(), setVersion())">
         Launch minecraft
@@ -47,8 +92,11 @@
     <div id="quiltbtn">
       <a href="./quiltfiles.html">Quilt versions >></a>
     </div>
-    <div id="quiltbtn">
+    <div id="custombtn">
       <a href="./customfiles.html">Custom versions >></a>
     </div>
+    <div style="text-align: center; color: red;">WARNING ABOUT COLORED NAME: THIS COMPLETELY DISABLES JOINIG SERVERS!</div>
+    <div style="text-align: center; color: white;">This happens because the color is completely external and servers detect it as invalid.</div>
+    Available colors: Black, Blue, Green, Aqua, Red, Purple, Gold, Grey, Dark Grey, Violet, Light Green, Cyan, Light Red, Pink, Yellow (NO CASE-SENSITIVE)
   </body>
 </html>
